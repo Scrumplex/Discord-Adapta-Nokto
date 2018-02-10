@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #    Discord-Adapta-Nokto
 #    Copyright (C) 2018 Sefa Eyeoglu <contact@scrumplex.net> (https://scrumplex.net)
 #
@@ -18,11 +18,15 @@
 set -e
 sudo npm install -g asar
 
+# Send SIGUSR1 to Discord to kill
+killall -qI -10 Discord || true
+
 cd ~/.config/discord/0.0.4/modules/discord_desktop_core
 
-cp core.asar core.before-adapta-nokto-patch.asar
+cp core.asar core.before-patch.asar
 
 TMP=$(mktemp -d)
 asar e core.asar $TMP
-sed -i "121i _mainWindow\$webConten.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"https://cdn.scrumplex.net/discord-adapta-nokto.css\"),elem.setAttribute(\"rel\",\"stylesheet\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
+sed -i "121i _mainWindow\$webConten.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/master/stylesheet/adapta-nokto.css\"),elem.setAttribute(\"rel\",\"stylesheet\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
 asar p $TMP core.asar
+echo Done! You can now start Discord again.
