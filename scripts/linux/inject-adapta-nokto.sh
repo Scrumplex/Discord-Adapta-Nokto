@@ -15,7 +15,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/master/stylesheet/adapta-nokto.css"
+STYLESHEET_SOURCE="https://rawgit.com/Scrumplex/Discord-Adpata-Nokto/master/stylesheet/adapta-nokto.css"
 
 set -e
 
