@@ -15,14 +15,23 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-STYLESHEET_SOURCE="https://rawgit.com/Scrumplex/Discord-Adpata-Nokto/master/stylesheet/adapta-nokto.css"
-
 set -e
 
-# Install asar from via npm
-sudo npm install -g asar
+STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/$(curl -s -H 'Accept: application/vnd.github.VERSION.sha' https://api.github.com/repos/Scrumplex/Discord-Adpata-Nokto/commits/HEAD)/stylesheet/adapta-nokto.css"
 
-# Send SIGUSR1 to Discord to kill
+# Install asar from via npm if not installed
+if ! [ -x "$(command -v asar)" ]
+then
+    if [ -x "$(command -v npm)" ]
+    then
+        sudo npm install -g asar
+    else
+        >&2 echo "npm not installed! Can't continue."
+        exit 1
+    fi
+fi
+
+# Kill Discord
 killall -qI -10 Discord || true
 
 # Go to Discord 0.0.4 directory
