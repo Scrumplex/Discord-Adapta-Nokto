@@ -11,7 +11,9 @@ Download and run the script [inject-adapta-nokto.sh](scripts/linux/inject-adapta
 
 It will require a recent version of npm, because it needs to modify Electron specific files.
 
-It will install the npm package [asar](https://github.com/electron/asar) gloablly in order to extract and pack files.
+It will install the npm package [asar](https://github.com/electron/asar) globally in order to extract and pack files.
+
+After the script has finished you can start Discord again and enable the default Dark Theme if not already enabled.
 
 # License
 This project is licensed under the GNU General Public License v3. You can find more information about it in the [LICENSE](LICENSE) file.
