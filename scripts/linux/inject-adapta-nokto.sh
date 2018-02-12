@@ -17,7 +17,7 @@
 
 set -e
 
-STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/$(curl -s -H 'Accept: application/vnd.github.VERSION.sha' https://api.github.com/repos/Scrumplex/Discord-Adpata-Nokto/commits/HEAD)/stylesheet/adapta-nokto.css"
+STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/$(curl -s -H 'Accept: application/vnd.github.VERSION.sha' https://api.github.com/repos/Scrumplex/Discord-Adpata-Nokto/commits/HEAD)/theme/dist/adapta-nokto.css"
 
 # Install asar from via npm if not installed
 if ! [ -x "$(command -v asar)" ]
@@ -46,7 +46,7 @@ TMP=$(mktemp -d)
 # Extract asar archive to newly created temp directory
 asar e core.asar $TMP
 # Insert injection script into app/mainScreen.js at line 357
-sed -i "357i mainWindow.webContents.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"$STYLESHEET_SOURCE\"),elem.setAttribute(\"rel\",\"stylesheet\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
+sed -i "357i mainWindow.webContents.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"$STYLESHEET_SOURCE\"),elem.setAttribute(\"rel\",\"theme\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
 # Pack the folder again
 asar p $TMP core.asar
 

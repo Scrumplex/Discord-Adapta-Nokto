@@ -19,12 +19,16 @@ It will install the npm package [asar](https://github.com/electron/asar) globall
 
 After the script has finished you can start Discord again and enable the default Dark Theme if not already enabled.
 
+## Upgrade
+For an upgrade you just need to run [revert.sh](scripts/linux/revert.sh) and then install again with [inject-adapta-nokto.sh](scripts/linux/inject-adapta-nokto.sh)..
+
 # Status
 
  - [x] Theme main UI (guilds-list, friends-list, channel-list, chat, ...)
+ - [x] Theme context-menu
  - [ ] Theme settings
  - [ ] Theme dialogs / modals
- - [ ] Theme start screen
+ - [x] Theme start screen
  - [ ] Add support for other OS (presumably with BetterDiscord)
  - [ ] Add Adapta (Light) theme
 

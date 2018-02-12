@@ -1,0 +1,168 @@
+/*!
+ *    Discord-Adapta-Nokto
+ *    Copyright (C) 2018 Sefa Eyeoglu <contact@scrumplex.net> (https://scrumplex.net)
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+@import "colors";
+
+body, .app-mount, .appMount-14L89u, .container-2oOGIt {
+	background: $adaptaNoktoBackground;
+}
+
+/* Outer */
+.theme-dark .layer-kosS71, .theme-dark .layers-20RVFW, .theme-dark .title-qAcLxz, .private-channels .search-bar,
+.guilds-wrapper, .header-1tSljs, .header-1tSljs:hover, .theme-dark .headerBar-cxbhPD, .container-iksrDt, .container-2OU7Cz {
+	background: $adaptaNoktoBackground;
+}
+
+.guilds-wrapper .guilds .guild .guild-inner, .guilds-wrapper .guilds-add {
+	background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Corner */
+.channels-3g2vYe, .container-RYiLUQ, .theme-dark .channel-members {
+	background: $adaptaNoktoMiddleground;
+}
+
+.private-channels .channel:hover a, .private-channels .channel.selected a, .contentSelectedText-3j5CXt,
+.nameHoveredText-2FFqiz, .contentHoveredText-2HYGIY, .contentHoveredVoice-2qGNKh:active, .contentSelectedVoice-gTtVM9:active,
+.theme-dark .channel-members .member.popout-open, .theme-dark .channel-members .member:hover {
+	background: $adaptaNoktoBackground;
+}
+
+.colorDefaultText-2v6rRX, .colorDefaultVoice-1x4dEl, .colorHoveredText-1CsxK1, .colorHoveredVoice-1P3kui,
+.colorLockedText-2onHWv, .colorLockedVoice-2VCSgk, .colorSelectedText-3YhFC6, .colorSelectedVoice-ieXC3Z,
+.colorUnreadText-1KwCnP, .colorUnreadVoice-1Ztv9I {
+	color: #ffffff;
+}
+
+/* Chat */
+.theme-dark .chat, .theme-dark .chat > .content, .theme-dark #friends,
+.theme-dark .friends-table, .theme-dark .messages-wrapper, .theme-dark .chat form, .theme-dark .typing-3eiiL_ {
+	background: $adaptaNoktoForeground;
+}
+
+.theme-dark #friends .friends-table .friends-row:hover {
+	background: $adaptaNoktoMiddleground;
+}
+
+.chat .new-messages-bar {
+	background-color: transparentize($adaptaNoktoAccent, 0.1);
+}
+
+.chat .new-messages-bar:hover {
+	background-color: $adaptaNoktoAccent;
+}
+
+// Search
+.theme-dark .search-results-wrap, .theme-dark .search-results-wrap .search-header {
+	background-color: $adaptaNoktoMiddleground;
+}
+
+.theme-dark .search-results-wrap .search-result .hit,
+.theme-dark .search-results-wrap .search-result.expanded .search-result-message.hit {
+	background-color: $adaptaNoktoForeground;
+}
+
+/* Scrollbar */
+.theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-thumb,
+.theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-thumb,
+.scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-thumb,
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb {
+	background-color: $adaptaNoktoScrollbar;
+	border: none;
+	border-right: solid 3px transparent; /* Workaround for paddings */
+	border-left: solid 3px transparent; /* Workaround for paddings */
+	border-radius: 0;
+	transition: background-color 200ms linear;
+}
+
+.theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-thumb:hover,
+.theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-thumb:hover,
+.scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-thumb:hover,
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb:hover {
+	background-color: $adaptaNoktoScrollbarHover;
+}
+
+.theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-thumb:active,
+.theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-thumb:active,
+.scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-thumb:active,
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb:active {
+	background-color: $adaptaNoktoScrollbarActive;
+}
+
+.theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-track-piece,
+.theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-track-piece,
+.scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-track,
+.scrollerThemed-19vinI.themeGhostHairline-2H8SiW .scroller-fzNley::-webkit-scrollbar-track,
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-track {
+	background-color: transparent;
+	border: none;
+}
+
+.scrollerThemed-19vinI.themeGhostHairline-2H8SiW .scroller-fzNley::-webkit-scrollbar,
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar {
+	width: 15px;
+	height: 15px;
+}
+
+/* User Popouts */
+.userPopout-4pfA0d {
+	border-radius: 0;
+}
+
+.theme-dark .headerNormal-1cioxU {
+	background-color: $adaptaNoktoBackground;
+}
+
+.theme-dark .body-3rkFrF, .theme-dark .footer-2J5zqP {
+	background-color: $adaptaNoktoMiddleground;
+}
+
+.headerPlaying-2eYqm9 {
+	background: $adaptaNoktoAccent;
+}
+
+/* Context-Menus*/
+.theme-dark .contextMenu-uoJTbz {
+	background: $adaptaNoktoForeground;
+	-webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 0;
+}
+
+.theme-dark .item-1XYaYf:hover {
+	background: $adaptaNoktoMiddleground;
+}
+
+.item-1XYaYf {
+	border-radius: 0;
+}
+
+/* Speaker icon */
+.guilds-wrapper .guilds .guild.audio .guild-inner:after, .guilds-wrapper .guilds .guild.video .guild-inner:after {
+	background-color: $adaptaNoktoAccent;
+}
+
+/* Make main-view not round */
+.base-3AoPqv {
+	border-radius: 0;
+}
+
+// Bot Tag
+.botTagRegular-288-ZL {
+	background: $adaptaNoktoAccent;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Discord-Adpata-Nokto",
+  "version": "1.0.0",
+  "description": "Unofficial Adapta-Nokto style theme for Discord",
+  "main": "index.js",
+  "repository": "https://github.com/Scrumplex/Discord-Adpata-Nokto.git",
+  "author": "Sefa Eyeoglu <contact@scrumplex.net>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "pump": "^1.0.2"
+  }
+}
