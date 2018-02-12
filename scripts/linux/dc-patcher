@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+#    Discord-Adapta-Nokto
+#    Copyright (C) 2018 Sefa Eyeoglu <contact@scrumplex.net> (https://scrumplex.net)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/$(curl -s -H 'Accept: application/vnd.github.VERSION.sha' https://api.github.com/repos/Scrumplex/Discord-Adpata-Nokto/commits/HEAD)/theme/dist/adapta-nokto.css"
+DESTINATION="$HOME/.config/discord/0.0.4"
+
+function print-help {
+    echo "dc-patcher, Version 1.0"
+    echo "Usage: dc-patcher [Options]"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help                          Print this help page"
+    echo ""
+    echo "  -d=<dest>, --destination=<dest>     Define destination directory;               Default: $DESTINATION"
+    echo "  -s=<src>, --source=<src>            Define the css file, that will be injected; Default: $STYLESHEET_SOURCE (dynamic)"
+    echo "  -u, uninstall                       Uninstalls patch (May be combined with -d)"
+}
+
+function restore-original {
+    if [ ! -f "$DESTINATION/modules/discord_desktop_core/core.before-patch.asar" ]
+    then
+        echo "Not installed! Exiting..."
+        exit 0
+    fi
+
+    # Kill Discord
+    killall -qI -10 Discord || true
+
+    echo "Removing currently active patch..."
+
+    # Restore previously backed up asar archive
+    mv "$DESTINATION/modules/discord_desktop_core/core.before-patch.asar" "$DESTINATION/modules/discord_desktop_core/core.asar"
+
+    echo "Original files have been restored!"
+}
+
+
+for i in "$@"
+do
+    case $i in
+        -h|--help)
+            print-help
+            exit 0
+        ;;
+
+        -d=*|--destination=*)
+            DESTINATION="${i#*=}"
+            DESTINATION="${DESTINATION%/}"
+        ;;
+
+        -s=*|--source=*)
+            STYLESHEET_SOURCE="${i#*=}"
+        ;;
+
+        -u|--uninstall)
+            restore-original
+            exit $?
+        ;;
+
+        *)
+            echo "Ignoring ${i} (Unknown parameter)"
+        ;;
+    esac
+done
+
+echo "Checking for dependencies..."
+# Install asar from via npm if not installed
+if ! [ -x "$(command -v asar)" ]
+then
+    echo "Installing missing dependencies..."
+    if [ -x "$(command -v npm)" ]
+    then
+        sudo npm install -g asar
+    else
+        >&2 echo "Can't install dependencies automatically. Please install 'asar' manually."
+        exit 1
+    fi
+fi
+
+# Kill Discord
+killall -qI -10 Discord || true
+
+if [ -f "$DESTINATION/modules/discord_desktop_core/core.before-patch.asar" ]
+then
+    restore-original
+fi
+
+
+echo "Creating backup..."
+# Backup original asar archive
+cp "$DESTINATION/modules/discord_desktop_core/core.asar" "$DESTINATION/modules/discord_desktop_core/core.before-patch.asar"
+
+# Create temp directory
+TMP=$(mktemp -d)
+
+echo "Injecting $STYLESHEET_SOURCE to $DESTINATION..."
+# Extract asar archive to newly created temp directory
+asar e "$DESTINATION/modules/discord_desktop_core/core.asar" $TMP
+# Insert injection script into app/mainScreen.js at line 357
+sed -i "357i mainWindow.webContents.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"$STYLESHEET_SOURCE\"),elem.setAttribute(\"rel\",\"stylesheet\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
+# Pack the folder again
+asar p $TMP "$DESTINATION/modules/discord_desktop_core/core.asar"
+
+echo Done! You can now start Discord again.

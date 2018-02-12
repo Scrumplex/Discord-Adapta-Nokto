@@ -1,4 +1,5 @@
-# Discord-Adapta-Nokto
+Discord-Adapta-Nokto
+====================
 A theme patch for Discord on Linux.
 
 # Screenshots
@@ -10,17 +11,32 @@ A theme patch for Discord on Linux.
 # Support
 For now this patch officially supports Discord 0.0.4 on Linux.
 
-# Installation
-Download and run the script [inject-adapta-nokto.sh](scripts/linux/inject-adapta-nokto.sh).
+# Patcher
+## Installation
+1. Download the **dc-patcher** script [here](scripts/linux/dc-patcher).
+2. Run `$ chmod +x dc-patcher` in the containing directory.
+3. Run `$ ./dc-patcher` to install.
 
-It will require a recent version of npm, because it needs to modify Electron specific files.
+One liner:
+```bash
+$ bash <(wget -qO- https://raw.githubusercontent.com/Scrumplex/Discord-Adpata-Nokto/master/scripts/linux/dc-patcher)
+```
 
-It will install the npm package [asar](https://github.com/electron/asar) globally in order to extract and pack files.
-
-After the script has finished you can start Discord again and enable the default Dark Theme if not already enabled.
+## Configuration options
+There are some configuration options for the patcher. Just run `$ ./dc-patcher -h` for more info.
 
 ## Upgrade
-For an upgrade you just need to run [revert.sh](scripts/linux/revert.sh) and then install again with [inject-adapta-nokto.sh](scripts/linux/inject-adapta-nokto.sh)..
+The upgrade process is the same as the [installation](#Installation)
+
+## Uninstall
+1. Download the **dc-patcher** script [here](scripts/linux/dc-patcher).
+2. Run `$ chmod +x dc-patcher` in the containing directory.
+3. Run `$ ./dc-patcher -u` to uninstall.
+
+One liner:
+```bash
+$ bash <(wget -qO- https://raw.githubusercontent.com/Scrumplex/Discord-Adpata-Nokto/master/scripts/linux/dc-patcher) -u
+```
 
 # Status
 
