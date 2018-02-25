@@ -42,7 +42,7 @@ $ bash <(wget -qO- https://raw.githubusercontent.com/Scrumplex/Discord-Adpata-No
 
  - [x] Theme main UI (guilds-list, friends-list, channel-list, chat, ...)
  - [x] Theme context-menu
- - [ ] Theme settings
+ - [x] Theme settings
  - [ ] Theme dialogs / modals
  - [x] Theme start screen
  - [ ] Add support for other OS (presumably with BetterDiscord)

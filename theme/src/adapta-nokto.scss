@@ -67,6 +67,37 @@ body, .app-mount, .appMount-14L89u, .container-2oOGIt {
 	background-color: $adaptaNoktoAccent;
 }
 
+.theme-dark .inner-3if5cm {
+	border-radius: 0;
+	background: transparent;
+}
+
+.theme-dark .textArea-20yzAH {
+	margin-right: 50px;
+	padding: 10px;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.theme-dark .textArea-20yzAH:focus {
+	border-bottom: 2px solid $adaptaNoktoAccent;
+}
+
+// Settings
+.theme-dark .ui-standard-sidebar-view .sidebar-region {
+	background: $adaptaNoktoBackground;
+}
+
+.theme-dark .ui-standard-sidebar-view .content-region {
+	background: $adaptaNoktoBackground;
+}
+
+.theme-dark .cardPrimary-ZVL9Jr {
+	background: $adaptaNoktoForeground;
+	border: none;
+	border-radius: 0;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
 // Search
 .theme-dark .search-results-wrap, .theme-dark .search-results-wrap .search-header {
 	background-color: $adaptaNoktoMiddleground;
@@ -81,7 +112,8 @@ body, .app-mount, .appMount-14L89u, .container-2oOGIt {
 .theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-thumb,
 .theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-thumb,
 .scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-thumb,
-.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb {
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb,
+.theme-dark .scrollerThemed-19vinI.themeGhostHairline-2H8SiW .scroller-fzNley::-webkit-scrollbar-thumb {
 	background-color: $adaptaNoktoScrollbar;
 	border: none;
 	border-right: solid 3px transparent; /* Workaround for paddings */
@@ -93,14 +125,16 @@ body, .app-mount, .appMount-14L89u, .container-2oOGIt {
 .theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-thumb:hover,
 .theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-thumb:hover,
 .scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-thumb:hover,
-.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb:hover {
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb:hover,
+.theme-dark .scrollerThemed-19vinI.themeGhostHairline-2H8SiW .scroller-fzNley::-webkit-scrollbar-thumb:hover {
 	background-color: $adaptaNoktoScrollbarHover;
 }
 
 .theme-dark .friends-table .scroller-wrap ::-webkit-scrollbar-thumb:active,
 .theme-dark .messages-wrapper .scroller-wrap ::-webkit-scrollbar-thumb:active,
 .scrollerThemed-19vinI.themeGhost-10fio9 .scroller-fzNley::-webkit-scrollbar-thumb:active,
-.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb:active {
+.scrollerThemed-19vinI.themeGhostHairlineChannels-2lQojW .scroller-fzNley::-webkit-scrollbar-thumb:active,
+.theme-dark .scrollerThemed-19vinI.themeGhostHairline-2H8SiW .scroller-fzNley::-webkit-scrollbar-thumb:active {
 	background-color: $adaptaNoktoScrollbarActive;
 }
 
@@ -136,12 +170,19 @@ body, .app-mount, .appMount-14L89u, .container-2oOGIt {
 	background: $adaptaNoktoAccent;
 }
 
+.theme-dark .body-3ljq11, .theme-dark .footer-2wFs91 {
+	background-color: $adaptaNoktoBackground;
+}
+
 /* Context-Menus*/
 .theme-dark .contextMenu-uoJTbz {
 	background: $adaptaNoktoForeground;
-	-webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 0;
+}
+
+.theme-dark .itemSubMenu-3ZgIw- { // Menu-Entry with submenu
+	background-color: transparent;
 }
 
 .theme-dark .item-1XYaYf:hover {
