@@ -17,7 +17,7 @@
 
 set -e
 
-STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adpata-Nokto/$(curl -s -H 'Accept: application/vnd.github.VERSION.sha' https://api.github.com/repos/Scrumplex/Discord-Adpata-Nokto/commits/HEAD)/theme/dist/adapta-nokto.css"
+STYLESHEET_SOURCE="https://cdn.rawgit.com/Scrumplex/Discord-Adapta-Nokto/$(curl -s -H 'Accept: application/vnd.github.VERSION.sha' https://api.github.com/repos/Scrumplex/Discord-Adapta-Nokto/commits/HEAD)/theme/dist/adapta-nokto.css"
 DESTINATION="$HOME/.config/discord/0.0.4"
 
 function print-help {
