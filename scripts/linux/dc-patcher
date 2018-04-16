@@ -113,7 +113,7 @@ echo "Injecting $STYLESHEET_SOURCE to $DESTINATION..."
 # Extract asar archive to newly created temp directory
 asar e "$DESTINATION/modules/discord_desktop_core/core.asar" $TMP
 # Insert injection script into app/mainScreen.js at line 357
-sed -i "357i mainWindow.webContents.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"$STYLESHEET_SOURCE\"),elem.setAttribute(\"rel\",\"stylesheet\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
+sed -i "364i mainWindow.webContents.executeJavaScript('var elem=document.createElement(\"link\");elem.setAttribute(\"href\",\"$STYLESHEET_SOURCE\"),elem.setAttribute(\"rel\",\"stylesheet\"),document.head.appendChild(elem);');" $TMP/app/mainScreen.js
 # Pack the folder again
 asar p $TMP "$DESTINATION/modules/discord_desktop_core/core.asar"
 
