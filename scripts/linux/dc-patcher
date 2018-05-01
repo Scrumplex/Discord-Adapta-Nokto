@@ -86,7 +86,13 @@ then
     echo "Installing missing dependencies..."
     if [ -x "$(command -v npm)" ]
     then
-        sudo npm install -g asar
+        if [ -w "$(npm list -g | head -n 1)" ]
+        then
+            npm install -g asar
+        else
+            sudo npm install -g asar
+        fi
+
     else
         >&2 echo "Can't install dependencies automatically. Please install 'asar' manually."
         exit 1
